@@ -1,5 +1,26 @@
 .topBarContainer{
-    background-color: aqua;
-    height: 200px;
+    background-color:#B0A8B9;
+    height: 50px;
     width:100%;
+    overflow: hidden;
+    display:flex;
+    align-items: center;
 }
+.menuicon{
+    width:40px;
+    height:40px;
+}
+.topBarButtonList{
+    list-style-type: none;
+    width:100%;
+    
+}
+.topBarButtonLeft{
+    float: left;
+    padding-right:30px;
+}
+.topBarButtonRight{
+    float:right;
+    padding-right:30px;
+}
+
