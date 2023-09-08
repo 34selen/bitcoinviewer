@@ -1,13 +1,14 @@
 import styles from "./top-bar.module.css"
 import { Link } from "react-router-dom"
 import { useState } from "react";
-function Top_bar({favorits}){
+function Top_bar({coinData}){
     const [activeMenu,setActiveMenu]=useState({
         즐겨찾기:false,
-        인기순:false,
+        코인목록:false,
         회원정보:false,
         검색:false
     });
+    const favorits=JSON.parse(window.localStorage.getItem('favorits'));
     function onMouseEnterHandler(event){
        
         setActiveMenu((prevState)=>({
@@ -16,15 +17,13 @@ function Top_bar({favorits}){
         }))
 
     }
+    console.log(coinData)
     function onMouseLeaveHandler(event){
         setActiveMenu((prevState)=>({
             ...prevState,
             [event.target.id]:false
         }))
     }
-    setInterval(
-        console.log(activeMenu)
-    , 1000);
     return(
         <div className={styles.topBarContainer}>
             <Link to="/">
@@ -41,7 +40,7 @@ function Top_bar({favorits}){
                         ))}
                     </div>:null}
                 </li>
-                <li id="인기코인"className={styles.topBarButtonLeft}>인기코인</li>
+                <li id="코인목록"className={styles.topBarButtonLeft}>코인목록</li>
                 <li id="회원정보"className={styles.topBarButtonRight}>회원정보</li>
                 <li id="검색"className={styles.topBarButtonRight}>검색</li>
             </ul>
