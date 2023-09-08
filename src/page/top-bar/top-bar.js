@@ -1,7 +1,7 @@
 import styles from "./top-bar.module.css"
 import { Link } from "react-router-dom"
 import { useState } from "react";
-function Top_bar(){
+function Top_bar({favorits}){
     const [activeMenu,setActiveMenu]=useState({
         즐겨찾기:false,
         인기순:false,
@@ -33,7 +33,13 @@ function Top_bar(){
             <ul className={styles.topBarButtonList}>
                 <li id="즐겨찾기"className={styles.topBarButtonLeft} onMouseEnter={(event)=>onMouseEnterHandler(event)} onMouseOut={(event)=>onMouseLeaveHandler(event)}>
                     즐겨찾기
-                    {activeMenu["즐겨찾기"]?<div>aaaaa</div>:null}
+                    {activeMenu["즐겨찾기"]?<div className={styles.list}>
+                        {favorits.map((favorit,index)=>(
+                            <div key={index} onMouseEnter={(event)=>console.log(event)}>
+                                {favorit}
+                            </div>
+                        ))}
+                    </div>:null}
                 </li>
                 <li id="인기코인"className={styles.topBarButtonLeft}>인기코인</li>
                 <li id="회원정보"className={styles.topBarButtonRight}>회원정보</li>
