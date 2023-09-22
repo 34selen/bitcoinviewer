@@ -1,7 +1,7 @@
 import styles from "./top-bar.module.css"
 import { Link } from "react-router-dom"
 import { useState } from "react";
-function Top_bar({coinData}){
+function TopBar({coinData}){
     const [activeMenu,setActiveMenu]=useState({
         즐겨찾기:false,
         코인목록:false,
@@ -27,7 +27,7 @@ function Top_bar({coinData}){
     return(
         <div className={styles.topBarContainer}>
             <Link to="/">
-                <img src="/favicon.png" className={styles.menuicon}></img>
+                <img src="/favicon.png" className={styles.menuicon} alt="favicon"></img>
             </Link>
             <ul className={styles.topBarButtonList}>
                 <li id="즐겨찾기"className={styles.topBarButtonLeft} onMouseEnter={(event)=>onMouseEnterHandler(event)} onMouseOut={(event)=>onMouseLeaveHandler(event)}>
@@ -50,4 +50,4 @@ function Top_bar({coinData}){
     )
 }
 
-export default Top_bar;
+export default TopBar;

@@ -1,33 +1,41 @@
 import { Route, Routes } from 'react-router-dom';
-import Top_bar from "./page/top-bar/top-bar.js"
+import TopBar from "./page/top-bar/top-bar.js"
 import Main from "./page/main/main.js"
 import "./App.css"
 import { useEffect,useState } from 'react';
-import axios from 'axios';
+
 function App() {
   const [coinData,setCoinData]=useState(null);
 
   useEffect(()=>{
-    
-    
-    const fetchData = async() => {
-      const res = await fetch('https://api.bithumb.com/public/ticker/ALL');
-    //  const result = res.json();
-      return res;
-    }	
-    
-    fetchData().then(res => setCoinData(res));
-    
-   
-}, [])
+       
+          //https://api.bithumb.com/public/ticker/ALL
+          const fetchData = async () => {
+              // 데이터를 가져오는 API 엔드포인트 URL을 지정합니다.
+              const API_KEY="dda78a424124c3d1e0e32fe0473545ee"
+              const lat=37.635511;
+              const lon=127.064501;
+              const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&unit=metrix`)
+              .then((res)=>res.json())
+              
+      
+          
+      
+        
+              
+            } 
+          fetchData();
+  
+    }
+    , [])
   return (
     <div>
-      <Top_bar  />
+      <TopBar  />
       <Routes>
         <Route path='/'element={<Main/>}/>
       </Routes>
-      {coinData}
-     
+  
+     {JSON.stringify(coinData)}
     </div>
   );
 }
