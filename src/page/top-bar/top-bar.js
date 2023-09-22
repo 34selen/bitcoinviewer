@@ -1,7 +1,7 @@
 import styles from "./top-bar.module.css"
 import { Link } from "react-router-dom"
 import { useState } from "react";
-function TopBar({coinData}){
+function TopBar(){
     const [activeMenu,setActiveMenu]=useState({
         즐겨찾기:false,
         코인목록:false,
@@ -17,7 +17,7 @@ function TopBar({coinData}){
         }))
 
     }
-    console.log(coinData)
+
     function onMouseLeaveHandler(event){
         setActiveMenu((prevState)=>({
             ...prevState,
