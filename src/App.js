@@ -8,20 +8,26 @@ function App() {
   const [coinData,setCoinData]=useState(null);
 
   useEffect(()=>{
-    async function fetch() {
-        const response = await axios.get('https://api.bithumb.com/public/ticker/ALL')
-        setCoinData(response.data)
-    };
-    fetch();
-  
+    
+    
+    const fetchData = async() => {
+      const res = await fetch('https://api.bithumb.com/public/ticker/ALL');
+    //  const result = res.json();
+      return res;
+    }	
+    
+    fetchData().then(res => setCoinData(res));
+    
+   
 }, [])
   return (
     <div>
-      <Top_bar />
+      <Top_bar  />
       <Routes>
-        <Route path='/'element={<Main coinData={coinData}/>}/>
+        <Route path='/'element={<Main/>}/>
       </Routes>
-      <div>{coinData}</div>
+      {coinData}
+     
     </div>
   );
 }
