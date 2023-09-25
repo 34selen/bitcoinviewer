@@ -1,13 +1,21 @@
 import styles from "./top-bar.module.css"
 import { Link } from "react-router-dom"
-import { useState } from "react";
-function TopBar(){
+import { useEffect, useState } from "react";
+function TopBar({coinData}){
+    const [coinList,setCoinList]=useState([]);
     const [activeMenu,setActiveMenu]=useState({
         즐겨찾기:false,
         코인목록:false,
         회원정보:false,
         검색:false
     });
+    useEffect(()=>{
+        if(coinData!=null){
+            const coinNameArray = coinData.map(item => item.name);
+            setCoinList(coinNameArray);
+        }
+        }
+    ,[coinData])
     const favorits=JSON.parse(window.localStorage.getItem('favorits'));
     function onMouseEnterHandler(event){
        
@@ -40,7 +48,15 @@ function TopBar(){
                         ))}
                     </div>:null}
                 </li>
-                <li id="코인목록"className={styles.topBarButtonLeft}>코인목록</li>
+                <li id="코인목록"className={styles.topBarButtonLeft} onMouseEnter={(event)=>onMouseEnterHandler(event)} onMouseOut={(event)=>onMouseLeaveHandler(event)}>코인목록
+                {activeMenu["코인목록"]?<div className={styles.list}>
+                        {coinList.map((coinName,index)=>(
+                            <div key={index} onMouseEnter={(event)=>console.log(event)}>
+                                {coinName}
+                            </div>
+                        ))}
+                    </div>:null}
+                </li>
                 <li id="회원정보"className={styles.topBarButtonRight}>회원정보</li>
                 <li id="검색"className={styles.topBarButtonRight}>검색</li>
             </ul>

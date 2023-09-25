@@ -8,17 +8,18 @@ function App() {
   const [coinData,setCoinData]=useState(null);
 useEffect(()=>{
   async function fetchData(){
-    await fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
-    .then((res)=>console.log(res));
+    const response = await fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW");
+    const data= await response.json();
+    setCoinData(data);
   }
   fetchData();
 },[])
 
   return (
     <div>
-      <TopBar  />
+      <TopBar  coinData={coinData}/>
       <Routes>
-        <Route path='/'element={<Main/>}/>
+        <Route path='/'element={<Main/>} coinData={coinData}/>
       </Routes>
   
 
