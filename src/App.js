@@ -2,9 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import TopBar from "./page/top-bar/top-bar.js"
 import Main from "./page/main/main.js"
 import "./App.css"
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+
   const [coinData,setCoinData]=useState(null);
 useEffect(()=>{
   async function fetchData(){
@@ -21,7 +22,7 @@ useEffect(()=>{
       <Routes>
         <Route path='/'element={<Main/>} coinData={coinData}/>
       </Routes>
-  
+
 
     </div>
   );
