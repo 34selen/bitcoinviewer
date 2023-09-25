@@ -8,8 +8,8 @@ function App() {
   const [coinData, setCoinData] = useState(null);
   useEffect(() => {
     async function fetchData() {
-      await fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW");
-    .then((res) => console.log(res));
+      await fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
+    .then((res) =>setCoinData(res));
     }
     fetchData();
   }, [])
