@@ -1,35 +1,43 @@
-.topBarContainer{
-    background-color:#B0A8B9;
-    height: 50px;
-    width:100%;
-    overflow: hidden;
-    display:flex;
-    align-items: center;
+.topBarContainer {
+  background-color: #b0a8b9;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
-.menuicon{
-    width:40px;
-    height:40px;
+.menuicon {
+  width: 40px;
+  height: 40px;
 }
-.topBarButtonList{
-    list-style-type: none;
-    width:100%;
-    
+.topBarButtonList {
+  list-style-type: none;
+  width: 100%;
 }
-.topBarButtonLeft{
-    float: left;
-    padding-right:30px;
+.topBarButtonLeft {
+  float: left;
+  padding-right: 30px;
 }
-.topBarButtonRight{
-    float:right;
-    padding-right:30px;
+.topBarButtonRight {
+  float: right;
+  padding-right: 30px;
 }
-.list{
-    position:absolute;
-    background-color:aqua;
-    border:1px solid black;
-    border-radius: 3px;
-    width:50px;
-    top:40px;
+.list {
+  position: absolute;
+  background-color: aqua;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 80px;
+  top: 20px;
 
- 
+  height: 500px; /* 세로 높이를 500px로 고정합니다. */
+  overflow-y: scroll;
+}
+.listActivate {
+  position: absolute;
+  display: flex;
+  top: -50px;
+  background-color: red;
+  width: 80px;
+  height: 900px;
 }
